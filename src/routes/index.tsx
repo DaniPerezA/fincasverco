@@ -28,13 +28,13 @@ function HomePage() {
         <section className="grid items-center gap-8 pt-10 lg:grid-cols-12 lg:pt-14">
           <div className="lg:col-span-7">
             <span className="glass inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-              Administración de Comunidades
+              Administración de Fincas
             </span>
             <h1 className="mt-6 font-display text-4xl leading-[1.05] tracking-tight text-balance sm:text-5xl md:text-6xl">
-              Gestionamos tu comunidad con <span className="text-primary">tranquilidad</span>.
+              Tu comunidad en <span className="text-primary">buenas manos</span>.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground text-pretty">
-              Somos Fincas Verco. Contabilidad transparente, mantenimiento ágil y atención cercana para propietarios, presidentes y administradores de toda España.
+              Somos Fincas Verco. Contabilidad transparente, mantenimiento ágil y atención cercana para propietarios.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -49,20 +49,6 @@ function HomePage() {
               >
                 Ver servicios
               </Link>
-            </div>
-            <div className="mt-10 flex flex-wrap gap-8">
-              <div>
-                <div className="font-display text-3xl text-foreground">1.240</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">Comunidades activas</div>
-              </div>
-              <div>
-                <div className="font-display text-3xl text-foreground">98%</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">Satisfacción</div>
-              </div>
-              <div>
-                <div className="font-display text-3xl text-foreground">24h</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">Respuesta media</div>
-              </div>
             </div>
           </div>
 
