@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { GlassCard } from "@/components/GlassCard";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { useState } from "react";
 
 export const Route = createFileRoute("/contacto")({
