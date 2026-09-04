@@ -50,20 +50,6 @@ function HomePage() {
                 Ver servicios
               </Link>
             </div>
-            <div className="mt-10 flex flex-wrap gap-8">
-              <div>
-                <div className="font-display text-3xl text-foreground">1.240</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">Comunidades activas</div>
-              </div>
-              <div>
-                <div className="font-display text-3xl text-foreground">98%</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">Satisfacción</div>
-              </div>
-              <div>
-                <div className="font-display text-3xl text-foreground">24h</div>
-                <div className="mt-1 text-xs font-medium uppercase tracking-wider text-muted-foreground">Respuesta media</div>
-              </div>
-            </div>
           </div>
 
           <div className="lg:col-span-5">
