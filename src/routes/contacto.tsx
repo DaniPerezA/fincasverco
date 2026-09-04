@@ -47,21 +47,27 @@ function ContactoPage() {
 
             <div className="mt-8 space-y-4 text-foreground">
               <GlassCard className="flex items-center gap-4 p-4">
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/10 font-display text-primary">T</div>
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <Phone className="h-5 w-5" />
+                </div>
                 <div>
                   <div className="text-sm font-semibold">Teléfono</div>
                   <div className="text-sm text-muted-foreground">91 234 56 78</div>
                 </div>
               </GlassCard>
               <GlassCard className="flex items-center gap-4 p-4">
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/10 font-display text-primary">@</div>
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <Mail className="h-5 w-5" />
+                </div>
                 <div>
                   <div className="text-sm font-semibold">Correo electrónico</div>
                   <div className="text-sm text-muted-foreground">hola@fincasverco.es</div>
                 </div>
               </GlassCard>
               <GlassCard className="flex items-center gap-4 p-4">
-                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/10 font-display text-primary">U</div>
+                <div className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-primary/10 text-primary">
+                  <MapPin className="h-5 w-5" />
+                </div>
                 <div>
                   <div className="text-sm font-semibold">Oficinas</div>
                   <div className="text-sm text-muted-foreground">Calle del Olmo 14, 28014 Madrid</div>
