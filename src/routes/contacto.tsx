@@ -52,7 +52,7 @@ function ContactoPage() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold">Teléfono</div>
-                  <div className="text-sm text-muted-foreground">91 234 56 78</div>
+                  <div className="text-sm text-muted-foreground">91 579 55 46</div>
                 </div>
               </GlassCard>
               <GlassCard className="flex items-center gap-4 p-4">
@@ -61,7 +61,7 @@ function ContactoPage() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold">Correo electrónico</div>
-                  <div className="text-sm text-muted-foreground">hola@fincasverco.es</div>
+                  <div className="text-sm text-muted-foreground">info@fincasverco.es</div>
                 </div>
               </GlassCard>
               <GlassCard className="flex items-center gap-4 p-4">
@@ -70,7 +70,7 @@ function ContactoPage() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold">Oficinas</div>
-                  <div className="text-sm text-muted-foreground">Calle del Olmo 14, 28014 Madrid</div>
+                  <div className="text-sm text-muted-foreground">Calle del Azahar 7, 28020 Madrid</div>
                 </div>
               </GlassCard>
             </div>

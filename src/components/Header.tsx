@@ -20,7 +20,7 @@ export function Header() {
             Servicios
           </Link>
           <Link to="/sobre-nosotros" activeProps={{ className: "text-foreground" }} className="transition-colors hover:text-foreground">
-            Sobre nosotros
+            Así trabajamos
           </Link>
           <Link to="/contacto" activeProps={{ className: "text-foreground" }} className="transition-colors hover:text-foreground">
             Contacto

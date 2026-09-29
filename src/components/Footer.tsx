@@ -14,13 +14,13 @@ export function Footer() {
           <nav className="flex flex-wrap gap-6 text-sm font-medium text-white/70">
             <Link to="/" className="transition-colors hover:text-primary-foreground">Inicio</Link>
             <Link to="/servicios" className="transition-colors hover:text-primary-foreground">Servicios</Link>
-            <Link to="/sobre-nosotros" className="transition-colors hover:text-primary-foreground">Sobre nosotros</Link>
+            <Link to="/sobre-nosotros" className="transition-colors hover:text-primary-foreground">Así trabajamos</Link>
             <Link to="/contacto" className="transition-colors hover:text-primary-foreground">Contacto</Link>
           </nav>
         </div>
         <div className="mt-8 flex flex-col gap-2 text-xs text-white/55 md:flex-row md:items-center md:justify-between">
           <span>© {new Date().getFullYear()} Fincas Verco · Administradora de Comunidades de Propietarios</span>
-          <span>Calle del Olmo 14, 28014 Madrid · 91 234 56 78</span>
+          <span>Calle del Azahar 7, 28020 Madrid · 91 579 55 46</span>
         </div>
       </div>
     </footer>

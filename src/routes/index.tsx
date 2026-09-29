@@ -2,21 +2,45 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { GlassCard } from "@/components/GlassCard";
+import { Eye, HeartHandshake, PiggyBank, ClipboardCheck } from "lucide-react";
 import dashboardImg from "@/assets/dashboard.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Fincas Verco — Administración de Comunidades de Propietarios" },
-      { name: "description", content: "Gestionamos tu comunidad con tranquilidad. Contabilidad transparente, mantenimiento ágil y atención cercana para propietarios de toda España." },
+      { name: "description", content: "Gestión profesional, cercana y transparente de comunidades de propietarios en Madrid." },
       { property: "og:title", content: "Fincas Verco — Administración de Comunidades de Propietarios" },
-      { property: "og:description", content: "Gestionamos tu comunidad con tranquilidad. Contabilidad transparente, mantenimiento ágil y atención cercana." },
+      { property: "og:description", content: "Gestión profesional, cercana y transparente de comunidades de propietarios en Madrid." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
   component: HomePage,
 });
+
+const pillars = [
+  {
+    icon: Eye,
+    title: "TRANSPARENCIA",
+    description: "Cuentas claras, presupuestos comparados y acceso a la documentación de la comunidad.",
+  },
+  {
+    icon: HeartHandshake,
+    title: "ATENCIÓN PERSONALIZADA",
+    description: "Un administrador que conoce su comunidad y responde cuando lo necesita.",
+  },
+  {
+    icon: PiggyBank,
+    title: "CONTROL DE COSTES",
+    description: "Revisión de contratos, proveedores y servicios para optimizar los gastos comunitarios.",
+  },
+  {
+    icon: ClipboardCheck,
+    title: "GESTIÓN EFICAZ",
+    description: "Seguimiento de incidencias, siniestros, obras, mantenimiento y obligaciones legales.",
+  },
+];
 
 function HomePage() {
   return (
@@ -34,7 +58,7 @@ function HomePage() {
               Tu comunidad en <span className="text-primary">buenas manos</span>.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground text-pretty">
-              Somos Fincas Verco. Contabilidad transparente, mantenimiento ágil y atención cercana para propietarios.
+              Gestión profesional, cercana y transparente de comunidades de propietarios en Madrid.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <Link
@@ -76,39 +100,29 @@ function HomePage() {
                   <span className="font-semibold text-emerald-600">Al corriente</span>
                 </div>
               </div>
+              <Link
+                to="/servicios"
+                className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-colors hover:bg-primary/90"
+              >
+                Acceder al Portal del propietario
+              </Link>
             </GlassCard>
           </div>
         </section>
 
-        {/* Services preview */}
-        <section className="mt-16 grid gap-6 md:grid-cols-3">
-          <GlassCard className="p-6">
-            <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 font-display text-lg text-primary">
-              1
-            </div>
-            <h3 className="mt-4 font-display text-xl text-foreground">Contabilidad clara</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">
-              Presupuestos, cuotas y liquidaciones con trazabilidad total y cero sorpresas para los vecinos.
-            </p>
-          </GlassCard>
-          <GlassCard className="p-6">
-            <div className="grid h-11 w-11 place-items-center rounded-xl bg-secondary/30 font-display text-lg text-primary">
-              2
-            </div>
-            <h3 className="mt-4 font-display text-xl text-foreground">Mantenimiento ágil</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">
-              Red de proveedores de confianza para ascensores, climatización, fachadas y zonas comunes.
-            </p>
-          </GlassCard>
-          <GlassCard className="p-6">
-            <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 font-display text-lg text-primary">
-              3
-            </div>
-            <h3 className="mt-4 font-display text-xl text-foreground">Atención 24/7</h3>
-            <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">
-              Línea de incidencias y portal digital para propietarios y administradores siempre disponible.
-            </p>
-          </GlassCard>
+        {/* Pillars */}
+        <section className="mt-16 grid gap-6 sm:grid-cols-2 xl:grid-cols-4">
+          {pillars.map((pillar) => (
+            <GlassCard key={pillar.title} className="p-6">
+              <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
+                <pillar.icon className="h-5 w-5" />
+              </div>
+              <h3 className="mt-4 text-sm font-bold tracking-wide text-foreground">{pillar.title}</h3>
+              <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">
+                {pillar.description}
+              </p>
+            </GlassCard>
+          ))}
         </section>
 
         {/* Trust strip */}
