@@ -7,37 +7,46 @@ import teamImg from "@/assets/team.jpg";
 export const Route = createFileRoute("/sobre-nosotros")({
   head: () => ({
     meta: [
-      { title: "Sobre nosotros — Fincas Verco" },
-      { name: "description", content: "Conoce Fincas Verco. Más de 25 años administrando comunidades de propietarios con rigor, transparencia y trato cercano." },
-      { property: "og:title", content: "Sobre nosotros — Fincas Verco" },
-      { property: "og:description", content: "Más de 25 años administrando comunidades de propietarios con rigor, transparencia y trato cercano." },
+      { title: "Así trabajamos — Fincas Verco" },
+      { name: "description", content: "Conozca el método de gestión de Fincas Verco: transparencia, atención personalizada, control de costes y seguimiento de cada asunto." },
+      { property: "og:title", content: "Así trabajamos — Fincas Verco" },
+      { property: "og:description", content: "Transparencia, atención personalizada, control de costes y seguimiento de cada asunto de su comunidad." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
   }),
-  component: SobreNosotrosPage,
+  component: AsiTrabajamosPage,
 });
 
-const values = [
+const steps = [
   {
-    title: "Transparencia",
-    description: "Cada céntimo de la comunidad está justificado. Informes claros y accesibles para todos los propietarios.",
+    number: "01",
+    title: "Conocemos su comunidad",
+    description: "Analizamos las características, necesidades y problemas de la finca.",
   },
   {
-    title: "Cercanía",
-    description: "Un gestor asignado a cada comunidad. Respondemos con rapidez porque conocemos a nuestros vecinos.",
+    number: "02",
+    title: "Organizamos la gestión",
+    description: "Revisamos contratos, proveedores, cuentas, mantenimiento y obligaciones.",
   },
   {
-    title: "Prevención",
-    description: "Anticipamos incidencias antes de que se conviertan en gastos mayores: mantenimiento planificado y revisión constante.",
+    number: "03",
+    title: "Atendemos las incidencias",
+    description: "Gestionamos averías, siniestros, presupuestos y actuaciones necesarias.",
   },
   {
-    title: "Rigor",
-    description: "Cumplimos la normativa vigente y defendemos los intereses de la comunidad con solidez profesional.",
+    number: "04",
+    title: "Informamos a los propietarios",
+    description: "La comunidad dispone de información clara y accesible sobre su gestión.",
+  },
+  {
+    number: "05",
+    title: "Hacemos seguimiento",
+    description: "No nos limitamos a tramitar: comprobamos que los asuntos quedan solucionados.",
   },
 ];
 
-function SobreNosotrosPage() {
+function AsiTrabajamosPage() {
   return (
     <div className="min-h-screen bg-background text-foreground antialiased">
       <Header />
@@ -45,6 +54,17 @@ function SobreNosotrosPage() {
       <main className="mx-auto max-w-6xl px-4 pb-16 sm:px-6">
         {/* Hero */}
         <section className="grid items-center gap-10 pt-10 lg:grid-cols-2 lg:pt-14">
+          <div>
+            <span className="glass inline-block rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-primary">
+              Así trabajamos
+            </span>
+            <h1 className="mt-6 font-display text-4xl leading-[1.05] tracking-tight text-balance sm:text-5xl md:text-6xl">
+              Un método claro para gestionar su comunidad.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg text-muted-foreground text-pretty">
+              Cinco pasos que definen nuestra forma de trabajar, desde el primer día hasta el seguimiento de cada asunto.
+            </p>
+          </div>
           <div className="overflow-hidden rounded-3xl">
             <img
               src={teamImg}
@@ -55,62 +75,28 @@ function SobreNosotrosPage() {
               loading="eager"
             />
           </div>
-          <div>
-            <span className="inline-block rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.14em] text-primary">
-              Nuestra historia
-            </span>
-            <h1 className="mt-6 font-display text-4xl leading-[1.05] tracking-tight text-balance sm:text-5xl md:text-6xl">
-              La llave de la casa, entregada con confianza.
-            </h1>
-            <p className="mt-6 max-w-xl text-lg text-muted-foreground text-pretty">
-              Desde 1998 acompañamos a presidentes y vecinos en el día a día de sus comunidades. No somos una oficina fría: somos parte de la casa que compartimos.
-            </p>
-          </div>
         </section>
 
-        {/* Stats */}
-        <section className="mt-16 grid gap-6 sm:grid-cols-3">
-          <GlassCard className="p-6 text-center">
-            <div className="font-display text-4xl text-foreground">1.240+</div>
-            <div className="mt-2 text-sm text-muted-foreground">Comunidades gestionadas</div>
-          </GlassCard>
-          <GlassCard className="p-6 text-center">
-            <div className="font-display text-4xl text-foreground">+25</div>
-            <div className="mt-2 text-sm text-muted-foreground">Años de experiencia</div>
-          </GlassCard>
-          <GlassCard className="p-6 text-center">
-            <div className="font-display text-4xl text-foreground">14</div>
-            <div className="mt-2 text-sm text-muted-foreground">Profesionales en plantilla</div>
-          </GlassCard>
-        </section>
-
-        {/* Values */}
-        <section className="mt-16">
-          <div className="mb-10 text-center">
-            <h2 className="font-display text-3xl tracking-tight text-foreground sm:text-4xl">
-              Nuestros valores
-            </h2>
-            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Cuatro principios que guían cada decisión que tomamos como administradores.
-            </p>
-          </div>
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {values.map((value) => (
-              <GlassCard key={value.title} className="p-6">
-                <h3 className="font-display text-xl text-foreground">{value.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">
-                  {value.description}
+        {/* Steps */}
+        <section className="mt-16 space-y-4">
+          {steps.map((step) => (
+            <GlassCard key={step.number} className="flex flex-col gap-3 p-6 sm:flex-row sm:items-start sm:gap-6">
+              <span className="font-display text-2xl text-primary sm:w-16 sm:shrink-0">{step.number}</span>
+              <div>
+                <h2 className="font-display text-xl text-foreground">{step.title}</h2>
+                <p className="mt-1.5 text-sm leading-relaxed text-muted-foreground text-pretty">
+                  {step.description}
                 </p>
-              </GlassCard>
-            ))}
-          </div>
+              </div>
+            </GlassCard>
+          ))}
         </section>
 
         {/* CTA */}
         <section className="mt-16">
           <GlassCard className="px-6 py-10 text-center md:px-14 md:py-14">
             <h2 className="font-display text-3xl tracking-tight text-foreground text-balance sm:text-4xl">
-              ¿Quiere conocernos en persona?
+              ¿Quiere que gestionemos su comunidad?
             </h2>
             <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
               Estaremos encantados de recibirle en nuestras oficinas o de llamarle para resolver sus dudas.
