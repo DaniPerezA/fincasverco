@@ -13,26 +13,55 @@ export function Header() {
         </Link>
 
         <div className="hidden items-center gap-8 text-sm font-medium text-muted-foreground md:flex">
-          <Link to="/" activeProps={{ className: "text-foreground" }} className="transition-colors hover:text-foreground">
+          <Link
+            to="/"
+            activeProps={{ className: "text-foreground" }}
+            className="transition-colors hover:text-foreground"
+          >
             Inicio
           </Link>
-          <Link to="/servicios" activeProps={{ className: "text-foreground" }} className="transition-colors hover:text-foreground">
+          <Link
+            to="/servicios"
+            activeProps={{ className: "text-foreground" }}
+            className="transition-colors hover:text-foreground"
+          >
             Servicios
           </Link>
-          <Link to="/sobre-nosotros" activeProps={{ className: "text-foreground" }} className="transition-colors hover:text-foreground">
+          <Link
+            to="/sobre-nosotros"
+            activeProps={{ className: "text-foreground" }}
+            className="transition-colors hover:text-foreground"
+          >
             Así trabajamos
           </Link>
-          <Link to="/contacto" activeProps={{ className: "text-foreground" }} className="transition-colors hover:text-foreground">
+          <Link
+            to="/contacto"
+            activeProps={{ className: "text-foreground" }}
+            className="transition-colors hover:text-foreground"
+          >
             Contacto
+          </Link>
+          <Link
+            to="/portal"
+            activeProps={{ className: "text-foreground" }}
+            className="transition-colors hover:text-foreground"
+          >
+            Portal
           </Link>
         </div>
 
-        <Link
-          to="/contacto"
-          className="inline-flex items-center rounded-xl bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-colors hover:bg-primary/90"
-        >
-          Solicitar Presupuesto
-        </Link>
+        <div className="flex items-center gap-2 sm:gap-3">
+          <Link to="/portal" className="text-sm font-semibold text-primary md:hidden">
+            Portal
+          </Link>
+          <Link
+            to="/contacto"
+            className="inline-flex items-center rounded-xl bg-primary px-3 py-2.5 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-colors hover:bg-primary/90 sm:px-4"
+          >
+            <span className="sm:hidden">Presupuesto</span>
+            <span className="hidden sm:inline">Solicitar Presupuesto</span>
+          </Link>
+        </div>
       </nav>
     </header>
   );

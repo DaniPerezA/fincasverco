@@ -9,9 +9,20 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "Fincas Verco — Administración de Comunidades de Propietarios" },
-      { name: "description", content: "Gestión profesional, cercana y transparente de comunidades de propietarios en Madrid." },
-      { property: "og:title", content: "Fincas Verco — Administración de Comunidades de Propietarios" },
-      { property: "og:description", content: "Gestión profesional, cercana y transparente de comunidades de propietarios en Madrid." },
+      {
+        name: "description",
+        content:
+          "Gestión profesional, cercana y transparente de comunidades de propietarios en Madrid.",
+      },
+      {
+        property: "og:title",
+        content: "Fincas Verco — Administración de Comunidades de Propietarios",
+      },
+      {
+        property: "og:description",
+        content:
+          "Gestión profesional, cercana y transparente de comunidades de propietarios en Madrid.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -23,7 +34,8 @@ const pillars = [
   {
     icon: Eye,
     title: "TRANSPARENCIA",
-    description: "Cuentas claras, presupuestos comparados y acceso a la documentación de la comunidad.",
+    description:
+      "Cuentas claras, presupuestos comparados y acceso a la documentación de la comunidad.",
   },
   {
     icon: HeartHandshake,
@@ -33,12 +45,14 @@ const pillars = [
   {
     icon: PiggyBank,
     title: "CONTROL DE COSTES",
-    description: "Revisión de contratos, proveedores y servicios para optimizar los gastos comunitarios.",
+    description:
+      "Revisión de contratos, proveedores y servicios para optimizar los gastos comunitarios.",
   },
   {
     icon: ClipboardCheck,
     title: "GESTIÓN EFICAZ",
-    description: "Seguimiento de incidencias, siniestros, obras, mantenimiento y obligaciones legales.",
+    description:
+      "Seguimiento de incidencias, siniestros, obras, mantenimiento y obligaciones legales.",
   },
 ];
 
@@ -80,7 +94,7 @@ function HomePage() {
             <GlassCard className="rounded-3xl p-4 sm:p-6">
               <div className="mb-4 flex items-center justify-between">
                 <span className="text-sm font-semibold">Portal del propietario</span>
-                <span className="text-xs text-muted-foreground">Cuota de enero</span>
+                <span className="text-xs text-muted-foreground">NIF o NIE</span>
               </div>
               <img
                 src={dashboardImg}
@@ -90,18 +104,13 @@ function HomePage() {
                 className="w-full rounded-2xl object-cover"
                 loading="eager"
               />
-              <div className="mt-4 space-y-2 text-sm">
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Comunidad · Torre Mirador</span>
-                  <span className="font-semibold text-foreground">Pendiente</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-muted-foreground">Comunidad · Ático 4B</span>
-                  <span className="font-semibold text-emerald-600">Al corriente</span>
-                </div>
-              </div>
+              <ul className="mt-4 space-y-2 text-sm text-muted-foreground">
+                <li>Vivienda, local comercial o plaza de garaje</li>
+                <li>Alta validada por la administración</li>
+                <li>Activación por correo electrónico</li>
+              </ul>
               <Link
-                to="/servicios"
+                to="/portal"
                 className="mt-4 inline-flex w-full items-center justify-center rounded-xl bg-primary px-4 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition-colors hover:bg-primary/90"
               >
                 Acceder al Portal del propietario
@@ -117,7 +126,9 @@ function HomePage() {
               <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/15 text-primary">
                 <pillar.icon className="h-5 w-5" />
               </div>
-              <h3 className="mt-4 text-sm font-bold tracking-wide text-foreground">{pillar.title}</h3>
+              <h3 className="mt-4 text-sm font-bold tracking-wide text-foreground">
+                {pillar.title}
+              </h3>
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">
                 {pillar.description}
               </p>
@@ -128,7 +139,9 @@ function HomePage() {
         {/* Trust strip */}
         <section className="mt-16">
           <GlassCard className="px-6 py-8 text-center md:px-12 md:py-10">
-            <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">Compromiso Fincas Verco</p>
+            <p className="text-sm font-medium uppercase tracking-wider text-muted-foreground">
+              Compromiso Fincas Verco
+            </p>
             <div className="mt-4 flex flex-col items-center justify-center gap-4 text-sm text-muted-foreground md:flex-row md:gap-8">
               <span className="flex items-center gap-2">
                 <span className="h-2 w-2 rounded-full bg-primary"></span>

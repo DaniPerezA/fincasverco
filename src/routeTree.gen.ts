@@ -13,6 +13,12 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as SobreNosotrosRouteImport } from './routes/sobre-nosotros'
+import { Route as AdminIndexRouteImport } from './routes/admin/index'
+import { Route as AdminPropietariosRouteImport } from './routes/admin/propietarios'
+import { Route as PortalIndexRouteImport } from './routes/portal/index'
+import { Route as PortalActivarRouteImport } from './routes/portal/activar'
+import { Route as PortalCuentaRouteImport } from './routes/portal/cuenta'
+import { Route as PortalRestablecerRouteImport } from './routes/portal/restablecer'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -34,18 +40,60 @@ const SobreNosotrosRoute = SobreNosotrosRouteImport.update({
   path: '/sobre-nosotros',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminIndexRoute = AdminIndexRouteImport.update({
+  id: '/admin/',
+  path: '/admin/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminPropietariosRoute = AdminPropietariosRouteImport.update({
+  id: '/admin/propietarios',
+  path: '/admin/propietarios',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalIndexRoute = PortalIndexRouteImport.update({
+  id: '/portal/',
+  path: '/portal/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalActivarRoute = PortalActivarRouteImport.update({
+  id: '/portal/activar',
+  path: '/portal/activar',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalCuentaRoute = PortalCuentaRouteImport.update({
+  id: '/portal/cuenta',
+  path: '/portal/cuenta',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PortalRestablecerRoute = PortalRestablecerRouteImport.update({
+  id: '/portal/restablecer',
+  path: '/portal/restablecer',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/contacto': typeof ContactoRoute
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/admin/propietarios': typeof AdminPropietariosRoute
+  '/portal/activar': typeof PortalActivarRoute
+  '/portal/cuenta': typeof PortalCuentaRoute
+  '/portal/restablecer': typeof PortalRestablecerRoute
+  '/admin/': typeof AdminIndexRoute
+  '/portal/': typeof PortalIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/contacto': typeof ContactoRoute
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/admin/propietarios': typeof AdminPropietariosRoute
+  '/portal/activar': typeof PortalActivarRoute
+  '/portal/cuenta': typeof PortalCuentaRoute
+  '/portal/restablecer': typeof PortalRestablecerRoute
+  '/admin': typeof AdminIndexRoute
+  '/portal': typeof PortalIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -53,13 +101,50 @@ export interface FileRoutesById {
   '/contacto': typeof ContactoRoute
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
+  '/admin/propietarios': typeof AdminPropietariosRoute
+  '/portal/activar': typeof PortalActivarRoute
+  '/portal/cuenta': typeof PortalCuentaRoute
+  '/portal/restablecer': typeof PortalRestablecerRoute
+  '/admin/': typeof AdminIndexRoute
+  '/portal/': typeof PortalIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/contacto' | '/servicios' | '/sobre-nosotros'
+  fullPaths:
+    | '/'
+    | '/contacto'
+    | '/servicios'
+    | '/sobre-nosotros'
+    | '/admin/propietarios'
+    | '/portal/activar'
+    | '/portal/cuenta'
+    | '/portal/restablecer'
+    | '/admin/'
+    | '/portal/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/contacto' | '/servicios' | '/sobre-nosotros'
-  id: '__root__' | '/' | '/contacto' | '/servicios' | '/sobre-nosotros'
+  to:
+    | '/'
+    | '/contacto'
+    | '/servicios'
+    | '/sobre-nosotros'
+    | '/admin/propietarios'
+    | '/portal/activar'
+    | '/portal/cuenta'
+    | '/portal/restablecer'
+    | '/admin'
+    | '/portal'
+  id:
+    | '__root__'
+    | '/'
+    | '/contacto'
+    | '/servicios'
+    | '/sobre-nosotros'
+    | '/admin/propietarios'
+    | '/portal/activar'
+    | '/portal/cuenta'
+    | '/portal/restablecer'
+    | '/admin/'
+    | '/portal/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -67,6 +152,12 @@ export interface RootRouteChildren {
   ContactoRoute: typeof ContactoRoute
   ServiciosRoute: typeof ServiciosRoute
   SobreNosotrosRoute: typeof SobreNosotrosRoute
+  AdminPropietariosRoute: typeof AdminPropietariosRoute
+  PortalActivarRoute: typeof PortalActivarRoute
+  PortalCuentaRoute: typeof PortalCuentaRoute
+  PortalRestablecerRoute: typeof PortalRestablecerRoute
+  AdminIndexRoute: typeof AdminIndexRoute
+  PortalIndexRoute: typeof PortalIndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -99,6 +190,48 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SobreNosotrosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/': {
+      id: '/admin/'
+      path: '/admin'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/propietarios': {
+      id: '/admin/propietarios'
+      path: '/admin/propietarios'
+      fullPath: '/admin/propietarios'
+      preLoaderRoute: typeof AdminPropietariosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal/': {
+      id: '/portal/'
+      path: '/portal'
+      fullPath: '/portal/'
+      preLoaderRoute: typeof PortalIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal/activar': {
+      id: '/portal/activar'
+      path: '/portal/activar'
+      fullPath: '/portal/activar'
+      preLoaderRoute: typeof PortalActivarRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal/cuenta': {
+      id: '/portal/cuenta'
+      path: '/portal/cuenta'
+      fullPath: '/portal/cuenta'
+      preLoaderRoute: typeof PortalCuentaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/portal/restablecer': {
+      id: '/portal/restablecer'
+      path: '/portal/restablecer'
+      fullPath: '/portal/restablecer'
+      preLoaderRoute: typeof PortalRestablecerRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -107,6 +240,12 @@ const rootRouteChildren: RootRouteChildren = {
   ContactoRoute: ContactoRoute,
   ServiciosRoute: ServiciosRoute,
   SobreNosotrosRoute: SobreNosotrosRoute,
+  AdminPropietariosRoute: AdminPropietariosRoute,
+  PortalActivarRoute: PortalActivarRoute,
+  PortalCuentaRoute: PortalCuentaRoute,
+  PortalRestablecerRoute: PortalRestablecerRoute,
+  AdminIndexRoute: AdminIndexRoute,
+  PortalIndexRoute: PortalIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

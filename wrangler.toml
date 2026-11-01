@@ -1,0 +1,9 @@
+# Cloudflare D1 usa el mismo SQL que el SQLite local (.data/portal.sqlite).
+# Cree la base con `npx wrangler d1 create fincas-verco` y sustituya database_id.
+name = "fincas-verco-website"
+compatibility_date = "2026-11-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "fincas-verco"
+database_id = "00000000-0000-0000-0000-000000000000"

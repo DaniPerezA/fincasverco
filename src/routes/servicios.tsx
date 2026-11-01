@@ -8,9 +8,17 @@ export const Route = createFileRoute("/servicios")({
   head: () => ({
     meta: [
       { title: "Servicios — Fincas Verco" },
-      { name: "description", content: "Descubre los servicios de Fincas Verco: administración de fincas, contabilidad, mantenimiento, asesoría jurídica y seguros para comunidades." },
+      {
+        name: "description",
+        content:
+          "Descubre los servicios de Fincas Verco: administración de fincas, contabilidad, mantenimiento, asesoría jurídica y seguros para comunidades.",
+      },
       { property: "og:title", content: "Servicios — Fincas Verco" },
-      { property: "og:description", content: "Administración de fincas, contabilidad, mantenimiento, asesoría jurídica y seguros para comunidades de propietarios." },
+      {
+        property: "og:description",
+        content:
+          "Administración de fincas, contabilidad, mantenimiento, asesoría jurídica y seguros para comunidades de propietarios.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -73,7 +81,8 @@ function ServiciosPage() {
               Todo lo que una comunidad necesita.
             </h1>
             <p className="mt-6 max-w-xl text-lg text-muted-foreground text-pretty">
-              Seis áreas de gestión para que presidentes y vecinos tengan la comunidad en orden, sin sorpresas ni complicaciones.
+              Seis áreas de gestión para que presidentes y vecinos tengan la comunidad en orden, sin
+              sorpresas ni complicaciones.
             </p>
             <div className="mt-8">
               <Link
@@ -99,7 +108,10 @@ function ServiciosPage() {
         {/* Services grid */}
         <section className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
-            <GlassCard key={service.number} className="p-6 transition-transform duration-300 hover:-translate-y-1">
+            <GlassCard
+              key={service.number}
+              className="p-6 transition-transform duration-300 hover:-translate-y-1"
+            >
               <div className="grid h-11 w-11 place-items-center rounded-xl bg-primary/10 font-display text-lg text-primary">
                 {service.number}
               </div>
@@ -107,6 +119,14 @@ function ServiciosPage() {
               <p className="mt-2 text-sm leading-relaxed text-muted-foreground text-pretty">
                 {service.description}
               </p>
+              {service.number === "06" ? (
+                <Link
+                  to="/portal"
+                  className="mt-4 inline-flex text-sm font-semibold text-primary hover:underline"
+                >
+                  Acceder al portal
+                </Link>
+              ) : null}
             </GlassCard>
           ))}
         </section>
@@ -119,7 +139,8 @@ function ServiciosPage() {
                 ¿Necesita un presupuesto a medida?
               </h2>
               <p className="mt-4 text-muted-foreground">
-                Cuéntenos las características de su comunidad y le prepararemos una propuesta clara sin compromiso.
+                Cuéntenos las características de su comunidad y le prepararemos una propuesta clara
+                sin compromiso.
               </p>
               <Link
                 to="/contacto"
@@ -128,7 +149,10 @@ function ServiciosPage() {
                 Pedir presupuesto
               </Link>
             </div>
-            <div className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-primary/10 blur-3xl" aria-hidden="true" />
+            <div
+              className="pointer-events-none absolute -right-20 -top-20 h-72 w-72 rounded-full bg-primary/10 blur-3xl"
+              aria-hidden="true"
+            />
           </GlassCard>
         </section>
       </main>
