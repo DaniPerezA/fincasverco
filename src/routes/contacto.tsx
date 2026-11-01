@@ -9,9 +9,17 @@ export const Route = createFileRoute("/contacto")({
   head: () => ({
     meta: [
       { title: "Contacto — Fincas Verco" },
-      { name: "description", content: "Contacta con Fincas Verco. Solicita presupuesto sin compromiso para la administración de tu comunidad de propietarios." },
+      {
+        name: "description",
+        content:
+          "Contacta con Fincas Verco. Solicita presupuesto sin compromiso para la administración de tu comunidad de propietarios.",
+      },
       { property: "og:title", content: "Contacto — Fincas Verco" },
-      { property: "og:description", content: "Solicita presupuesto sin compromiso para la administración de tu comunidad de propietarios." },
+      {
+        property: "og:description",
+        content:
+          "Solicita presupuesto sin compromiso para la administración de tu comunidad de propietarios.",
+      },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -22,9 +30,23 @@ export const Route = createFileRoute("/contacto")({
 function ContactoPage() {
   const [submitted, setSubmitted] = useState(false);
 
+  const staticHost = import.meta.env["VITE_STATIC_HOST"] === "true";
+
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setSubmitted(true);
+    if (!staticHost) {
+      setSubmitted(true);
+      return;
+    }
+    const data = new FormData(event.currentTarget);
+    const body = [
+      `Nombre: ${String(data.get("name") ?? "")}`,
+      `Correo: ${String(data.get("email") ?? "")}`,
+      `Comunidad: ${String(data.get("community") ?? "")}`,
+      "",
+      String(data.get("message") ?? ""),
+    ].join("\n");
+    window.location.href = `mailto:info@fincasverco.es?subject=${encodeURIComponent("Consulta desde la web")}&body=${encodeURIComponent(body)}`;
   };
 
   return (
@@ -70,7 +92,9 @@ function ContactoPage() {
                 </div>
                 <div>
                   <div className="text-sm font-semibold">Oficinas</div>
-                  <div className="text-sm text-muted-foreground">Calle del Azahar 7, 28020 Madrid</div>
+                  <div className="text-sm text-muted-foreground">
+                    Calle del Azahar 7, 28020 Madrid
+                  </div>
                 </div>
               </GlassCard>
             </div>
@@ -80,7 +104,9 @@ function ContactoPage() {
           <GlassCard className="p-6 sm:p-8">
             {submitted ? (
               <div className="py-12 text-center">
-                <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-2xl text-primary">✓</div>
+                <div className="mx-auto grid h-14 w-14 place-items-center rounded-full bg-primary/10 text-2xl text-primary">
+                  ✓
+                </div>
                 <h2 className="mt-6 font-display text-2xl text-foreground">Mensaje enviado</h2>
                 <p className="mt-2 text-muted-foreground">
                   Gracias por contactar con Fincas Verco. Le responderemos lo antes posible.
@@ -89,11 +115,15 @@ function ContactoPage() {
             ) : (
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div>
-                  <label htmlFor="name" className="mb-1.5 block text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="name"
+                    className="mb-1.5 block text-sm font-medium text-foreground"
+                  >
                     Nombre completo
                   </label>
                   <input
                     id="name"
+                    name="name"
                     type="text"
                     required
                     placeholder="Su nombre"
@@ -101,11 +131,15 @@ function ContactoPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="email" className="mb-1.5 block text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="email"
+                    className="mb-1.5 block text-sm font-medium text-foreground"
+                  >
                     Correo electrónico
                   </label>
                   <input
                     id="email"
+                    name="email"
                     type="email"
                     required
                     placeholder="su@email.com"
@@ -113,22 +147,30 @@ function ContactoPage() {
                   />
                 </div>
                 <div>
-                  <label htmlFor="community" className="mb-1.5 block text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="community"
+                    className="mb-1.5 block text-sm font-medium text-foreground"
+                  >
                     Nombre de la comunidad
                   </label>
                   <input
                     id="community"
+                    name="community"
                     type="text"
                     placeholder="Comunidad de propietarios..."
                     className="w-full rounded-xl bg-white/60 px-4 py-3 text-sm text-foreground placeholder:text-muted-foreground ring-1 ring-border focus:outline-none focus:ring-2 focus:ring-primary/50"
                   />
                 </div>
                 <div>
-                  <label htmlFor="message" className="mb-1.5 block text-sm font-medium text-foreground">
+                  <label
+                    htmlFor="message"
+                    className="mb-1.5 block text-sm font-medium text-foreground"
+                  >
                     ¿En qué podemos ayudarle?
                   </label>
                   <textarea
                     id="message"
+                    name="message"
                     rows={4}
                     required
                     placeholder="Describa las necesidades de su comunidad..."
@@ -142,7 +184,9 @@ function ContactoPage() {
                   Enviar mensaje
                 </button>
                 <p className="text-center text-xs text-muted-foreground">
-                  Al enviar, acepta que Fincas Verco utilice sus datos para responder a su consulta.
+                  {staticHost
+                    ? "Se abrirá su programa de correo para enviar el mensaje a info@fincasverco.es."
+                    : "Al enviar, acepta que Fincas Verco utilice sus datos para responder a su consulta."}
                 </p>
               </form>
             )}

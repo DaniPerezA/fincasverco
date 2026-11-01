@@ -29,14 +29,26 @@ function PortalPage() {
             Portal del propietario
           </h1>
           <p className="mt-4 text-muted-foreground text-pretty">
-            Entre con su NIF o NIE si es propietario de una vivienda, un local comercial o una plaza
-            de garaje en una comunidad administrada por Fincas Verco. La primera vez elegirá la
-            contraseña y activará la cuenta desde el correo. El identificador tiene que estar
-            validado por un administrador.
+            {import.meta.env["VITE_STATIC_HOST"] === "true"
+              ? "El portal identifica a los propietarios de viviendas, locales comerciales y plazas de garaje administrados por Fincas Verco."
+              : "Entre con su NIF o NIE si es propietario de una vivienda, un local comercial o una plaza de garaje en una comunidad administrada por Fincas Verco. La primera vez elegirá la contraseña y activará la cuenta desde el correo. El identificador tiene que estar validado por un administrador."}
           </p>
         </div>
         <GlassCard className="p-6 sm:p-8">
-          <AccessForm />
+          {import.meta.env["VITE_STATIC_HOST"] === "true" ? (
+            <div className="space-y-3 text-sm text-muted-foreground">
+              <p className="text-base font-medium text-foreground">
+                El acceso de propietarios todavía no está disponible en esta dirección.
+              </p>
+              <p>
+                La identificación, la activación de la cuenta y el cambio de contraseña necesitan el
+                servidor de Fincas Verco. Mientras tanto puede llamar al 91 579 55 46 o escribir a
+                info@fincasverco.es.
+              </p>
+            </div>
+          ) : (
+            <AccessForm />
+          )}
         </GlassCard>
         <p className="text-center text-sm text-muted-foreground">
           ¿Aún no consta en los registros?{" "}
