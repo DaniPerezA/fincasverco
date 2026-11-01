@@ -1,42 +1,11 @@
-import { getD1, type D1Database } from "@/server/d1";
 import { env } from "@/server/env";
 import { migrate } from "@/server/schema";
 import type { Sql } from "@/server/sql";
 
 let sqliteDb: Sql | null = null;
-let migratedD1 = false;
 
 function bindable(params: readonly unknown[] | undefined): unknown[] {
   return (params ?? []).map((value) => (value === undefined ? null : value));
-}
-
-function wrapD1(d1: D1Database): Sql {
-  return {
-    async exec(sql) {
-      await d1.exec(sql);
-    },
-    async get(sql, params) {
-      const row = await d1
-        .prepare(sql)
-        .bind(...bindable(params))
-        .first();
-      return row ?? undefined;
-    },
-    async all(sql, params) {
-      const result = await d1
-        .prepare(sql)
-        .bind(...bindable(params))
-        .all();
-      return result.results ?? [];
-    },
-    async run(sql, params) {
-      const result = await d1
-        .prepare(sql)
-        .bind(...bindable(params))
-        .run();
-      return { changes: result.meta?.changes ?? 0 };
-    },
-  };
 }
 
 async function openSqlite(): Promise<Sql> {
@@ -72,20 +41,8 @@ async function openSqlite(): Promise<Sql> {
   };
 }
 
-/**
- * Cloudflare D1 in production (binding `DB`) and a local SQLite file in `vite dev`.
- * Both speak the same SQL, so the portal does not depend on a separate database server.
- */
+/** Archivo SQLite local. El alojamiento se decidirá al publicar la web. */
 export async function getDb(): Promise<Sql> {
-  const d1 = getD1();
-  if (d1) {
-    const db = wrapD1(d1);
-    if (!migratedD1) {
-      await migrate(db);
-      migratedD1 = true;
-    }
-    return db;
-  }
   if (!sqliteDb) {
     const db = await openSqlite();
     await migrate(db);

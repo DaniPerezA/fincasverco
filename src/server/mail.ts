@@ -45,31 +45,7 @@ async function writeOutbox(mail: OutboundMail): Promise<void> {
 }
 
 export async function sendMail(mail: OutboundMail): Promise<{ devMail: boolean }> {
-  const apiKey = await env("RESEND_API_KEY");
-  if (!apiKey) {
-    await writeOutbox(mail);
-    console.info(`[portal] Correo local para ${mail.to}\nAsunto: ${mail.subject}\n${mail.text}`);
-    return { devMail: true };
-  }
-
-  const from = (await env("PORTAL_MAIL_FROM")) ?? "Fincas Verco <noreply@fincasverco.es>";
-  const response = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from,
-      to: [mail.to],
-      subject: mail.subject,
-      html: mail.html,
-      text: mail.text,
-    }),
-  });
-  if (!response.ok) {
-    const detail = await response.text();
-    throw new Error(`Resend respondió ${response.status}: ${detail.slice(0, 300)}`);
-  }
-  return { devMail: false };
+  await writeOutbox(mail);
+  console.info(`[portal] Correo local para ${mail.to}\nAsunto: ${mail.subject}\n${mail.text}`);
+  return { devMail: true };
 }

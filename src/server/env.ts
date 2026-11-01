@@ -1,5 +1,3 @@
-import { getD1 } from "@/server/d1";
-
 type Proc = { env?: Record<string, string | undefined>; cwd?: () => string };
 
 let dotenvLoaded = false;
@@ -22,7 +20,7 @@ function setEnvIfMissing(name: string, value: string) {
 }
 
 async function loadDotenv(): Promise<void> {
-  if (dotenvLoaded || getD1()) return;
+  if (dotenvLoaded) return;
   dotenvLoaded = true;
   try {
     const fs = (await import("node:fs")) as {

@@ -1,24 +1,16 @@
-# Fincas Verco website
+# Fincas Verco
 
-Crea una web para una empresa dedicada a la administración de Comunidades de Propietarios; la empresa se llama Fincas Verco
+Web de Fincas Verco, administración de comunidades de propietarios.
 
-This project was built with [Lovable](https://lovable.dev).
+## Desarrollo local
 
-## Build with Lovable
-
-Continue developing this project in the [Lovable editor](https://lovable.dev/projects/2039283b-9b5c-48bd-be13-24656d8fe1a7).
-
-- **Ship faster**: describe what you want to build and Lovable handles the code.
-- **Stay in sync**: every change made in Lovable is committed straight to this repository.
-- **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
+Hace falta Node.js.
 
 ```sh
-git clone <this-repository-url>
-cd <repository-name>
-npm i
+npm install
 npm run dev
 ```
+
+La aplicación queda en http://localhost:8080/.
+
+Los datos del portal se guardan en `.data/portal.sqlite`. Los correos de activación y de restablecimiento se escriben en `.data/outbox` y en la terminal del servidor. El archivo `.env` no se sube al repositorio: copia `.env.example` para crear el administrador inicial.
