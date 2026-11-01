@@ -5,10 +5,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 px-4 pt-4 sm:px-6">
       <nav className="glass mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-4 py-3 sm:px-6 sm:py-4">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="grid h-9 w-9 place-items-center rounded-xl bg-primary text-primary-foreground">
-            <Logo className="h-6 w-6" />
-          </div>
+        <Link to="/" className="flex items-center gap-2.5">
+          <Logo className="h-10 w-10 shrink-0 object-contain" />
           <span className="font-display text-xl tracking-tight text-foreground">Fincas Verco</span>
         </Link>
 
